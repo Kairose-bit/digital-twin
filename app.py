@@ -516,4 +516,4 @@ with ai_tab3:
                 metrics_text = f.read()
             st.code(metrics_text, language="json")
         else:
-            st.info("`metrics_summary` file not found.")    
+            st.info("`metrics_summary` file not found.")   
