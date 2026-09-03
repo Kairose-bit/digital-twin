@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 import time
 import os
 
+# --- OPTIONAL TELEMETRY MODULE IMPORT ---
 try:
     from telemetry import SignalTelemetryPipeline
     HAS_TELEMETRY = True
@@ -26,10 +27,10 @@ def load_engine_dataset():
     return None
 
 # --- APP BRANDING & HEADER ---
-st.title("🛩️ AI-Enabled Real-Time Rotax 914 UAV Digital Twin")
+st.title("🤖 ROTAX 914 UAV DIGITAL TWIN")
 st.subheader("Time-Series Anomaly Detection & Predictive Health Analytics")
 
-# --- ROTAX 914 ENGINE SPECIFICATIONS & THRESHOLDS ---
+# --- ROTAX 914 ENGINE SPECIFICATIONS & OPERATIONAL BOUNDARIES ---
 ENGINE_SPECS = {
     "Engine Model": "BRP-Rotax 914 UL / F (Turbocharged)",
     "Type": "4-Cylinder Boxer (Liquid-Cooled Heads / Air-Cooled Cylinders)",
@@ -89,7 +90,7 @@ flight_scenario = st.sidebar.selectbox(
 stream_active = st.sidebar.toggle("Activate Live Telemetry Stream", value=True)
 window_size = 15
 
-# --- SIMULATED ROTAX TIME-SERIES ML INFERENCE ---
+# --- ROTAX TIME-SERIES ML INFERENCE MODEL ---
 class Rotax914MLInference:
     @staticmethod
     def evaluate_window(df_window):
@@ -338,7 +339,7 @@ with ai_tab3:
         else:
             st.info("`metrics_summary.json` file not found.")
 
-# --- AUTOMATIC RERUN FOR LIVE STREAMING (OPTIMIZED SLEEP) ---
+# --- AUTOMATIC RERUN FOR LIVE STREAMING ---
 if stream_active:
     time.sleep(1.2)
     st.rerun()
